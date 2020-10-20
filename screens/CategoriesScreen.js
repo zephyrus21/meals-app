@@ -1,12 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
+import {
+    StyleSheet,
+    Text,
+    View,
+    Button,
+    FlatList,
+    TouchableOpacity,
+} from 'react-native';
 import { CATEGORIES } from '../data/dummy-data';
 
 const renderGridItem = (itemData) => {
     return (
-        <View styles={styles.gridItem}>
-            <Text>{itemData.item.title}</Text>
-        </View>
+        <TouchableOpacity>
+            <View style={styles.gridItem}>
+                <Text>{itemData.item.title}</Text>
+            </View>
+        </TouchableOpacity>
     );
 };
 
@@ -20,12 +29,12 @@ const CategoriesScreen = (props) => {
     );
 };
 
-export default CategoriesScreen;
-
 const styles = StyleSheet.create({
     gridItem: {
         flex: 1,
-        margin: 15,
+        margin: 25,
         height: 100,
     },
 });
+
+export default CategoriesScreen;
