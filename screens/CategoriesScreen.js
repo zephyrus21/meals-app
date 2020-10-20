@@ -14,7 +14,12 @@ const CategoriesScreen = (props) => {
         return (
             <TouchableOpacity
                 style={styles.gridItem}
-                onPress={() => props.navigation.navigate('Meals')}
+                onPress={() =>
+                    props.navigation.navigate('Meals', {
+                        categoryId: itemData.item.id,
+                        headerTitle: itemData.item.title,
+                    })
+                }
             >
                 <View>
                     <Text>{itemData.item.title}</Text>
