@@ -7,26 +7,24 @@ import {
     FlatList,
     TouchableOpacity,
 } from 'react-native';
+import CategoryGrid from '../components/CategoryGrid';
 import { CATEGORIES } from '../data/dummy-data';
 
 const CategoriesScreen = (props) => {
     const renderGridItem = (itemData) => {
         return (
-            <TouchableOpacity
-                style={styles.gridItem}
+            <CategoryGrid
+                title={itemData.item.title}
                 onPress={() =>
                     props.navigation.navigate('Meals', {
                         categoryId: itemData.item.id,
                         headerTitle: itemData.item.title,
                     })
                 }
-            >
-                <View>
-                    <Text>{itemData.item.title}</Text>
-                </View>
-            </TouchableOpacity>
+            />
         );
     };
+
     return (
         <FlatList
             numColumns={2}
@@ -36,12 +34,6 @@ const CategoriesScreen = (props) => {
     );
 };
 
-const styles = StyleSheet.create({
-    gridItem: {
-        flex: 1,
-        margin: 25,
-        height: 100,
-    },
-});
+const styles = StyleSheet.create({});
 
 export default CategoriesScreen;
