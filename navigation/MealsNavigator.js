@@ -20,7 +20,7 @@ const MealsNavigator = () => {
                         headerStyle: {
                             backgroundColor: Colors.primaryColor,
                         },
-                        headerTintColor: 'white',
+                        headerTintColor: '#fff',
                         headerTitleStyle: {
                             fontWeight: 'bold',
                         },
