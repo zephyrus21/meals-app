@@ -9,17 +9,19 @@ import {
 } from 'react-native';
 import { CATEGORIES } from '../data/dummy-data';
 
-const renderGridItem = (itemData) => {
-    return (
-        <TouchableOpacity>
-            <View style={styles.gridItem}>
-                <Text>{itemData.item.title}</Text>
-            </View>
-        </TouchableOpacity>
-    );
-};
-
 const CategoriesScreen = (props) => {
+    const renderGridItem = (itemData) => {
+        return (
+            <TouchableOpacity
+                style={styles.gridItem}
+                onPress={() => props.navigation.navigate('Meals')}
+            >
+                <View>
+                    <Text>{itemData.item.title}</Text>
+                </View>
+            </TouchableOpacity>
+        );
+    };
     return (
         <FlatList
             numColumns={2}
