@@ -10,32 +10,26 @@ import Colors from '../constants/Colors';
 const Stack = createStackNavigator();
 
 const MealsNavigator = () => {
-    const headerStyle = {
-        headerStyle: {
-            backgroundColor: Colors.primaryColor,
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-            fontWeight: 'bold',
-        },
-    };
     return (
         <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen
-                    name="Category"
-                    component={CategoriesScreen}
-                    options={headerStyle}
-                />
+            <Stack.Navigator
+                screenOptions={{
+                    headerStyle: {
+                        backgroundColor: Colors.primaryColor,
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }}
+            >
+                <Stack.Screen name="Category" component={CategoriesScreen} />
                 <Stack.Screen
                     name="Meals"
                     component={CategoriesMealsScreen}
-                    options={
-                        (({ route }) => ({
-                            title: route.params.headerTitle,
-                        }),
-                        headerStyle)
-                    }
+                    options={({ route }) => ({
+                        title: route.params.headerTitle,
+                    })}
                 />
                 <Stack.Screen
                     name="Meal Details"
