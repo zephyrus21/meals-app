@@ -6,7 +6,15 @@ import MealItem from '../components/MealItem';
 
 const CategoriesMealsScreen = (props) => {
     const renderMealItem = (itemData) => {
-        return <MealItem title={itemData.item.title} onSelectMeal={() => {}} />;
+        return (
+            <MealItem
+                title={itemData.item.title}
+                duration={itemData.item.duration}
+                affordibility={itemData.item.affordibility}
+                complexity={itemData.item.complexity}
+                onSelectMeal={() => {}}
+            />
+        );
     };
 
     const catId = props.route.params.categoryId;
