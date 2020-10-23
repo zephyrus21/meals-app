@@ -12,7 +12,13 @@ const CategoriesMealsScreen = (props) => {
                 duration={itemData.item.duration}
                 affordibility={itemData.item.affordibility}
                 complexity={itemData.item.complexity}
-                onSelectMeal={() => {}}
+                image={itemData.item.imageUrl}
+                onSelectMeal={() => {
+                    props.navigation.navigate('Meal Details', {
+                        mealId: itemData.item.id,
+                        headerTitle: itemData.item.title,
+                    });
+                }}
             />
         );
     };
@@ -22,7 +28,7 @@ const CategoriesMealsScreen = (props) => {
         (meal) => meal.categoryIds.indexOf(catId) >= 0
     );
     return (
-        <View>
+        <View style={styles.container}>
             <FlatList data={displayedMeals} renderItem={renderMealItem} />
         </View>
     );
@@ -30,4 +36,6 @@ const CategoriesMealsScreen = (props) => {
 
 export default CategoriesMealsScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container: { margin: 10 },
+});

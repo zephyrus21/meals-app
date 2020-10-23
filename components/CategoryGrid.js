@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     title: {
-        fontFamily: 'open-sans-bold',
+        // fontFamily: 'open-sans-bold',
         fontSize: 19,
         textAlign: 'right',
     },
