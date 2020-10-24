@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.6,
         textShadowOffset: { width: 0, height: 2 },
         shadowRadius: 10,
-        elevation: 3,
         padding: 15,
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
@@ -39,6 +38,7 @@ const styles = StyleSheet.create({
         height: 100,
         //! for touch feedback to not show outside
         borderRadius: 10,
+        elevation: 5,
         overflow: 'hidden',
     },
     title: {
