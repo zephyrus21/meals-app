@@ -13,7 +13,6 @@ const CategoriesScreen = (props) => {
                     props.navigation.navigate('Meals', {
                         categoryId: itemData.item.id,
                         headerTitle: itemData.item.title,
-                        headerColor: itemData.item.color,
                     })
                 }
             />

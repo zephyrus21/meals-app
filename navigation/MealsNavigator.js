@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/HeaderButtons';
 
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoriesMealsScreen from '../screens/CategoriesMealsScreen';
@@ -34,9 +36,26 @@ const MealsNavigator = () => {
                 <Stack.Screen
                     name="Meal Details"
                     component={MealDetailsScreen}
-                    options={({ route }) => ({
-                        title: route.params.headerTitle,
-                    })}
+                    options={
+                        (({ route }) => ({
+                            title: route.params.headerTitle,
+                        }),
+                        {
+                            headerRight: () => (
+                                <HeaderButtons
+                                    HeaderButtonComponent={HeaderButton}
+                                >
+                                    <Item
+                                        title="Fav"
+                                        iconName="ios-star"
+                                        onPress={() => {
+                                            console.log('object');
+                                        }}
+                                    />
+                                </HeaderButtons>
+                            ),
+                        })
+                    }
                 />
             </Stack.Navigator>
         </NavigationContainer>
