@@ -1,11 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/HeaderButtons';
 
 import { CATEGORIES, MEALS } from '../data/dummy-data';
 import MealItem from '../components/MealItem';
 
 const CategoriesMealsScreen = (props) => {
     const renderMealItem = (itemData) => {
+        const headerButton = (
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item
+                    title="Fav"
+                    iconName="ios-star"
+                    onPress={() => {
+                        console.log('object');
+                    }}
+                />
+            </HeaderButtons>
+        );
         return (
             <MealItem
                 title={itemData.item.title}
@@ -17,6 +30,7 @@ const CategoriesMealsScreen = (props) => {
                     props.navigation.navigate('Meal Details', {
                         mealId: itemData.item.id,
                         headerTitle: itemData.item.title,
+                        headerButton: headerButton,
                     });
                 }}
             />
