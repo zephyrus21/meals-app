@@ -10,12 +10,12 @@ import MealDetailsScreen from '../screens/MealDetailsScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
 import Colors from '../constants/Colors';
 
-const Stack = createStackNavigator();
+const MealsStack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
 
 const MealsNavigator = () => {
     return (
-        <Stack.Navigator
+        <MealsStack.Navigator
             screenOptions={{
                 headerStyle: {
                     backgroundColor: Colors.primaryColor,
@@ -26,15 +26,15 @@ const MealsNavigator = () => {
                 },
             }}
         >
-            <Stack.Screen name="Category" component={CategoriesScreen} />
-            <Stack.Screen
+            <MealsStack.Screen name="Category" component={CategoriesScreen} />
+            <MealsStack.Screen
                 name="Meals"
                 component={CategoriesMealsScreen}
                 options={({ route }) => ({
                     title: route.params.headerTitle,
                 })}
             />
-            <Stack.Screen
+            <MealsStack.Screen
                 name="Meal Details"
                 component={MealDetailsScreen}
                 options={({ route }) => ({
@@ -42,7 +42,41 @@ const MealsNavigator = () => {
                     headerRight: () => route.params.headerButton,
                 })}
             />
-        </Stack.Navigator>
+        </MealsStack.Navigator>
+    );
+};
+
+const FavoritesStack = createStackNavigator();
+
+const FavoritesNavigator = () => {
+    return (
+        <FavoritesStack.Navigator
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: Colors.accentColor,
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }}
+        >
+            <FavoritesStack.Screen
+                name="Favorites"
+                component={FavoritesScreen}
+                // options={({ route }) => ({
+                //     title: route.params.headerTitle,
+                // })}
+            />
+            <FavoritesStack.Screen
+                name="Meal Details"
+                component={MealDetailsScreen}
+                options={({ route }) => ({
+                    title: route.params.headerTitle,
+                    headerRight: () => route.params.headerButton,
+                })}
+            />
+        </FavoritesStack.Navigator>
     );
 };
 
@@ -66,7 +100,7 @@ const MealsTabNavigator = () => {
                 />
                 <Tab.Screen
                     name="Favorites"
-                    component={FavoritesScreen}
+                    component={FavoritesNavigator}
                     options={{
                         tabBarColor: Colors.accentColor,
                         tabBarIcon: ({ color }) => (
