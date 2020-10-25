@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, FlatList } from 'react-native';
+
 import CategoryGrid from '../components/CategoryGrid';
 import { CATEGORIES } from '../data/dummy-data';
 
