@@ -183,8 +183,18 @@ const Drawer = createDrawerNavigator();
 const MainNavigator = () => {
     return (
         <NavigationContainer>
-            <Drawer.Navigator>
-                <Drawer.Screen name="Meals" component={MealsTabNavigator} />
+            <Drawer.Navigator
+                drawerContentOptions={{
+                    activeTintColor: Colors.accentColor,
+                }}
+            >
+                <Drawer.Screen
+                    name="Meals"
+                    component={MealsTabNavigator}
+                    options={{
+                        drawerLabel: 'Home',
+                    }}
+                />
                 <Drawer.Screen name="Filter" component={FilterNavigator} />
             </Drawer.Navigator>
         </NavigationContainer>
