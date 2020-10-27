@@ -139,6 +139,17 @@ const FilterNavigator = (props) => {
                             />
                         </HeaderButtons>
                     ),
+                    headerRight: () => (
+                        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                            <Item
+                                title="Save"
+                                iconName="ios-save"
+                                onPress={() => {
+                                    console.log('Saving!!!');
+                                }}
+                            />
+                        </HeaderButtons>
+                    ),
                 }}
             />
         </FilterStack.Navigator>
