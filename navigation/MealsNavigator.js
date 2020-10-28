@@ -144,9 +144,9 @@ const FilterNavigator = (props) => {
                             <Item
                                 title="Save"
                                 iconName="ios-save"
-                                onPress={() => {
-                                    console.log('Saving!!!');
-                                }}
+                                onPress={
+                                    props.route.state.routes[0].params.save
+                                }
                             />
                         </HeaderButtons>
                     ),
@@ -191,7 +191,7 @@ const MealsTabNavigator = () => {
 
 const Drawer = createDrawerNavigator();
 
-const MainNavigator = () => {
+const MainNavigator = (props) => {
     return (
         <NavigationContainer>
             <Drawer.Navigator
