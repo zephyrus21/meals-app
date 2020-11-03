@@ -10,13 +10,7 @@ const MealList = (props) => {
     const renderMealItem = (itemData) => {
         const headerButton = (
             <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                <Item
-                    title="Fav"
-                    iconName="ios-star"
-                    onPress={() => {
-                        console.log('object');
-                    }}
-                />
+                <Item title="Fav" iconName="ios-star" onPress={() => {}} />
             </HeaderButtons>
         );
         return (

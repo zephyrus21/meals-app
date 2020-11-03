@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 
-import { MEALS } from '../data/dummy-data';
+import { toggleFavorite } from '../store/actions/mealsAction';
 
 const MealDetailsScreen = (props) => {
+    const availableMeals = useSelector((state) => state.meals.meals);
+
     const mealId = props.route.params.mealId;
 
-    const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+    const selectedMeal = availableMeals.find((meal) => meal.id === mealId);
 
+    const dispatch = useDispatch();
+
+    const toggleFavoriteHandler = useCallback(() => {
+        dispatch(toggleFavorite(mealId));
+    }, [dispatch, mealId]);
+
+    useEffect(() => {
+        props.navigation.setParams({ toggleFav: toggleFavoriteHandler });
+    }, [selectedMeal]);
     return (
         <ScrollView>
             <Image
